@@ -1,15 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button @click="test">发送请求</button>
+  <p>
+    <a href="/about">about</a>
+  </p>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { test, perf } from 'perf-eye'
+import axios from 'axios'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  mounted () {
+  },
+  methods: {
+    test () {
+      axios.get('https://weixin.91160.com/h5/register/main/index.html', {}, {
+        Headers: {
+          'Content-Type': 'text/html'
+        }
+      })
+    },
   }
 }
 </script>
